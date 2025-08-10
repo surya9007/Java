@@ -56,7 +56,7 @@ int number = 10;
 float pi = 3.14f;
 char grade = 'A';
 boolean isJavaFun = true;
-String name = "Raghul";
+String name = "Surya";
 ```
 
 ---
