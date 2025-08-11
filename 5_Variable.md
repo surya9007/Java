@@ -119,7 +119,7 @@ public class AddNumbers {
 ```java
 public class Student {
   public static void main(String[] args) {
-    String name = "Raghul";
+    String name = "Surya";
     int age = 20;
     char grade = 'A';
     System.out.println("Name: " + name);
