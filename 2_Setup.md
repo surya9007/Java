@@ -6,6 +6,7 @@ Go to: [Click to Download JDK](https://download.oracle.com/java/21/latest/jdk-21
 
 ---
 
+
 ## ✅ Step 2: Install Visual Studio Code
 
 1. Download from: [https://code.visualstudio.com/](https://code.visualstudio.com/)
