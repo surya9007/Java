@@ -101,3 +101,66 @@ class AllTypesExample {
     }
 }
 ```
+
+## What is the difference between `next()` and `nextLine()` in Java?
+
+In Java, both `next()` and `nextLine()` are methods of the `Scanner` class used for reading input, but they behave differently:
+
+---
+
+### 🔹 `next()`
+
+- **Reads:** A **single word** (token), stopping at whitespace.
+- **Delimiters:** Uses space, tab, or newline as default delimiters.
+- **Skips:** Leading whitespace (spaces, tabs, newlines).
+- **Example Input:**
+  ```
+  Hello world
+  ```
+  - `scanner.next()` → `"Hello"`  
+  - `scanner.next()` again → `"world"`
+
+---
+
+### 🔹 `nextLine()`
+
+- **Reads:** The **entire line** of input, including spaces, until a newline `\n`.
+- **Stops:** When it encounters the **end of the line**.
+- **Returns:** Everything typed before Enter was pressed.
+- **Example Input:**
+  ```
+  Hello world
+  ```
+  - `scanner.nextLine()` → `"Hello world"`
+
+---
+
+### ⚠ Common Issue
+
+If you use `next()`, `nextInt()`, etc., **before** `nextLine()`, the newline character (`\n`) is **not consumed**, so the next `nextLine()` may appear to "skip" input.
+
+#### Example:
+```java
+Scanner scanner = new Scanner(System.in);
+int age = scanner.nextInt();      // suppose input: 25
+String name = scanner.nextLine(); // seems skipped
+```
+
+**Why?**  
+Because `nextInt()` only reads `25`, **not** the newline after it, so `nextLine()` reads the leftover newline.
+
+#### ✅ Fix:
+```java
+scanner.nextLine();              // consume the leftover newline
+String name = scanner.nextLine(); // now works as expected
+```
+
+---
+
+### ✅ Summary
+
+| Method       | Reads           | Stops at      | Useful for                   |
+|--------------|------------------|---------------|------------------------------|
+| `next()`     | Next word/token  | Whitespace    | Reading individual words     |
+| `nextLine()` | Whole line       | Newline (`\n`) | Reading full lines of input |
+
